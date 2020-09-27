@@ -35,11 +35,14 @@ function start() {
                 } else if (answer.main === "Add an employee") {
                     employeeAdd();
                 } else if (answer.main === "View departments") {
-                    console.table(([{ a: 1, b: 'Y' }, { a: 'Z', b: 2 }])), start();
+                    console.table(([{ a: 1, b: 'Y' }, { a: 'Z', b: 2 }])),
+                        start();
                 } else if (answer.main === "View roles") {
-                    console.table(([{ a: 1, b: 'Y' }, { a: 'Z', b: 2 }])), start();
+                    console.table(([{ a: 1, b: 'Y' }, { a: 'Z', b: 2 }])),
+                        start();
                 } else if (answer.main === "View employees") {
-                    console.table([{ a: 1, b: 'Y' }, { a: 'Z', b: 2 }], ['a']), start();
+                    console.table([{ a: 1, b: 'Y' }, { a: 'Z', b: 2 }], ['a']),
+                        start();
                 } else if (answer.main === "Update employee roles") {
                     updateEmployeeRoles()
                 } else {
@@ -50,9 +53,6 @@ function start() {
 
         );
 };
-
-
-
 
 function departmentAdd() {
     inquirer
@@ -69,11 +69,7 @@ function departmentAdd() {
                 start()
             )
         })
-
 }
-// INSERT INTO employeedb(flavor, price, quantity)
-// VALUES("vanilla", 2.50, 100);
-
 
 function roleAdd() {
     inquirer
@@ -121,5 +117,5 @@ function employeeAdd() {
 };
 
 function updateEmployeeRoles() {
-
+    api.get("/")
 }
