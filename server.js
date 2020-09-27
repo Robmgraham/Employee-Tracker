@@ -34,13 +34,13 @@ function start() {
                     roleAdd();
                 } else if (answer.main === "Add an employee") {
                     employeeAdd();
-                } else if (answers.main === "View departments") {
-                    viewDepartments();
-                } else if (answers.main === "View roles") {
-                    viewRoles();
-                } else if (answers.main === "View employees") {
-                    viewEmployees();
-                } else if (answers.main === "Update employee roles") {
+                } else if (answer.main === "View departments") {
+                    console.table(([{ a: 1, b: 'Y' }, { a: 'Z', b: 2 }])), start();
+                } else if (answer.main === "View roles") {
+                    console.table(([{ a: 1, b: 'Y' }, { a: 'Z', b: 2 }])), start();
+                } else if (answer.main === "View employees") {
+                    console.table([{ a: 1, b: 'Y' }, { a: 'Z', b: 2 }], ['a']), start();
+                } else if (answer.main === "Update employee roles") {
                     updateEmployeeRoles()
                 } else {
                     connection.end();
@@ -63,7 +63,7 @@ function departmentAdd() {
         }])
         .then(function(answer) {
             connection.query(
-                "INSERT INTO department SET name = ?", [answer.department],
+                "INSERT INTO department SET dept_name = ?", [answer.department],
 
                 //function to execute after query is done 
                 start()
@@ -112,26 +112,13 @@ function employeeAdd() {
             }
         ]).then(function(answer) {
             connection.query(
-                "INSERT INTO employee SET name = ?", [answer.department],
+                "INSERT INTO employee SET first_name = ?", [answer.firstName],
+                "INSERT INTO employee SET last_name = ?", [answer.lastName],
+                start()
 
             )
         })
 };
-
-function viewDepartments() {
-
-
-
-}
-// ??
-function viewRoles() {
-
-}
-
-function viewEmployees() {
-
-}
-
 
 function updateEmployeeRoles() {
 
