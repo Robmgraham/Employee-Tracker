@@ -84,54 +84,55 @@ function roleAdd() {
             }
 
         ]).then(function(answer) {
-                connection.query(
-                    "INSERT INTO role SET name = ?", [answer.roleAdd],
+            connection.query(
+                "INSERT INTO role SET name = ?", [answer.roleAdd],
 
-                    //function to execute after query is done 
-                    start()
-                )
-            };
+                //function to execute after query is done 
+                start()
+            )
+        })
+}
 
-            function employeeAdd() {
-                inquirer
-                    .prompt([{
-                            type: "input",
-                            message: "First name",
-                            name: "firstName"
-                        },
-                        {
-                            type: "input",
-                            message: "Last Name",
-                            name: "lastName"
-                        },
-                        {
-                            type: "input",
-                            message: "role of Employee",
-                            name: "employeeRole"
-                        }
-                    ]).then(function(answer) {
-                        connection.query(
-                            "INSERT INTO employee SET name = ?", [answer.department],
-
-                        )
-                    })
-            };
-
-            function viewDepartments() {
-
-
-
+function employeeAdd() {
+    inquirer
+        .prompt([{
+                type: "input",
+                message: "First name",
+                name: "firstName"
+            },
+            {
+                type: "input",
+                message: "Last Name",
+                name: "lastName"
+            },
+            {
+                type: "input",
+                message: "role of Employee",
+                name: "employeeRole"
             }
-            // ??
-            function viewRoles() {
+        ]).then(function(answer) {
+            connection.query(
+                "INSERT INTO employee SET name = ?", [answer.department],
 
-            }
+            )
+        })
+};
 
-            function viewEmployees() {
-
-            }
+function viewDepartments() {
 
 
-            function updateEmployeeRoles() {
 
-            }
+}
+// ??
+function viewRoles() {
+
+}
+
+function viewEmployees() {
+
+}
+
+
+function updateEmployeeRoles() {
+
+}
